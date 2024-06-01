@@ -7,11 +7,25 @@
   function toggleDropdown() {
     showDropdown = !showDropdown;
   }
-  const fixedBottomClass = "fixed bottom-0 left-0 w-full bg-gray-300 dark:bg-gray-700 dark:text-white text-center p-2 z-999";
 </script>
 
-
 <style>
+  :global(html), :global(body) {
+    height: 100%;
+    margin: 0;
+  }
+
+  :global(body) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
   .dropdown {
     display: none;
     position: absolute;
@@ -19,25 +33,26 @@
     border: 1px solid #ccc;
     padding: 10px;
     z-index: 1000;
-    width: 100px; /* Dropdown 너비 설정 */
+    width: 100px; /* Dropdown width */
   }
 
   .tooltip:hover .dropdown {
     display: block;
   }
+
 </style>
 
 <Navbar class="mb-4 border-b-2 border-gray-300">
   <NavBrand href="/">
-    <img src="/images/PNU logo.jpg" class="me-3 h-6 sm:h-9" style="width: 60px; height: auto;" alt="PNU Logo" />
-    <div class="self-center whitespace-nowrap dark:text-white" style="font-size: 1.5em; font-weight: bold; margin-right: 30px;">
+    <img src="/images/PNU logo.jpg" class="me-3 h-6 sm:h-9" style="width: 50px; height: auto;" alt="PNU Logo" />
+    <div class="self-center whitespace-nowrap dark:text-white" style="font-size: 1.4em; font-weight: bold; margin-right: 30px;">
       PNU BCE Student Council
     </div>
   </NavBrand>
   <NavHamburger on:click={toggleDropdown} />
   <NavUl {activeUrl}>
     <div class="tooltip">
-      <NavLi class="relative" style="font-size: 1.3em; font-weight: bold; margin-left: 100px;">
+      <NavLi class="relative" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">
         <span class="text-primary-800 dark:text-white inline">소개</span>
         <div class="dropdown">
           <DropdownItem href="/insamal">인사말</DropdownItem>
@@ -46,11 +61,11 @@
         </div>
       </NavLi>
     </div>
-    <NavLi href="/Notice" class="nav-li" style="font-size: 1.3em; font-weight: bold; margin-left: 100px;">공지</NavLi>
-    <NavLi href="/Q&A" class="nav-li" style="font-size: 1.3em; font-weight: bold; margin-left: 100px;">Q&A</NavLi>
-    <NavLi href="/convenience_information" class="nav-li" style="font-size: 1.3em; font-weight: bold; margin-left: 100px;">편의정보</NavLi>
+    <NavLi href="/Notice" class="nav-li" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">공지</NavLi>
+    <NavLi href="/Q&A" class="nav-li" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">Q&A</NavLi>
+    <NavLi href="/convenience_information" class="nav-li" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">편의정보</NavLi>
     <div class="tooltip">
-      <NavLi class="relative" style="font-size: 1.3em; font-weight: bold; margin-left: 100px;">
+      <NavLi class="relative" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">
         <span class="text-primary-800 dark:text-white inline">활동</span>
         <div class="dropdown">
           <DropdownItem href="/2023">2023</DropdownItem>
@@ -61,14 +76,13 @@
   </NavUl>
 </Navbar>
 
-
-<div class="px-2 sm:px-4">
+<div class="content px-2 sm:px-4 ">
   <div class="container mx-auto">
       <slot></slot>
   </div>
 </div>
 
-<Footer class={fixedBottomClass}>
+<Footer class="mt-8">
   <FooterCopyright href="/" by="PNU BCE™" year={2024} />
   <div class="text-center mt-2">
     <p>주소: 경상남도 양산시 물금읍 부산대학로 49 경암공학관 106호</p>
