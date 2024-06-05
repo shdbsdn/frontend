@@ -6,6 +6,8 @@
     $: activeUrl = $page.url.pathname;
 </script>
 
+
+
 <div class="flex h-screen">
     <Sidebar>
     <div class="p-4 text-xl font-bold">

@@ -10,18 +10,15 @@
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
   :global(html), :global(body) {
     height: 100%;
     margin: 0;
+    font-family: 'Noto Sans KR', sans-serif; /* 폰트 적용 */
   }
 
   :global(body) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .content {
-    flex: 1;
     display: flex;
     flex-direction: column;
   }
@@ -39,6 +36,7 @@
   .tooltip:hover .dropdown {
     display: block;
   }
+  
 
 </style>
 
@@ -62,7 +60,7 @@
       </NavLi>
     </div>
     <NavLi href="/Notice" class="nav-li" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">공지</NavLi>
-    <NavLi href="/Q&A" class="nav-li" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">Q&A</NavLi>
+    <NavLi href="/FAQ" class="nav-li" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">FAQ</NavLi>
     <NavLi href="/convenience_information" class="nav-li" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">편의정보</NavLi>
     <div class="tooltip">
       <NavLi class="relative" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">
@@ -76,10 +74,8 @@
   </NavUl>
 </Navbar>
 
-<div class="content px-2 sm:px-4 ">
-  <div class="container mx-auto">
-      <slot></slot>
-  </div>
+<div>
+  <slot></slot>
 </div>
 
 <Footer class="mt-8">
@@ -90,3 +86,4 @@
     <p>이메일: bce.pnu@pusan.ac.kr</p>
   </div>
 </Footer>
+

@@ -15,7 +15,7 @@
         <SidebarGroup>
         <SidebarItem label="인사말" href="/insamal"/>
         <SidebarItem label="조직도" href="/jojikdo"/>
-        <SidebarItem label="연혁" />
+        <SidebarItem label="연혁" href="/yeonheuk" />
         </SidebarGroup>
     </SidebarWrapper>
     </Sidebar>

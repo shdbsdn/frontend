@@ -1,60 +1,54 @@
 <script>
-  import { Carousel } from 'flowbite-svelte';
+  import { onMount } from 'svelte';
   import images from '/src/imageData/images.json';
 
-  let index = 0;
-  let image = images[0];  // Initialize with the first image
+  let imageData = [];
+
+  onMount(() => {
+    imageData = images;
+  });
 </script>
 
 <style>
-  :global(body), :global(html) {
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+  :global(html), :global(body) {
+    height: 100%;
     margin: 0;
-    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif; /* 폰트 적용 */
+  }
+  .image-container {
+    position: relative;
     width: 100%;
+    margin: 0 auto;
   }
 
-  .carousel-container {
-  position: relative;
-  width: calc(100vw - 16px); /* Full viewport width minus 16px for padding/margin */
-  overflow: hidden;
-  }
-
-  .carousel-image img {
+  .image {
     width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  .carousel-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
   }
 
-  .alt-text {
-    position: absolute; /* Set position to absolute */
-    bottom: 10px; /* Adjust as necessary for your design */
-    right: 10px; /* Adjust as necessary for your design */
-    z-index: 9999; /* Ensure it's above other content */
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    padding: 8px;
-    border-radius: 8px;
+  .text-overlay {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 10px;
+    font-size: 5em; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    text-align: center;
+    white-space: nowrap;
   }
 </style>
 
-<div class="carousel-wrapper">
-  <div class="carousel-container">
-    <Carousel {images} let:Indicators let:Controls on:change={({ detail }) => (image = detail)}>
-      <Controls />
-      <Indicators />
-      <div slot="item" class="carousel-image">
-        {#each images as img}
-          <img src={img.src} alt={img.alt} />
-        {/each}
+<div>
+  {#each imageData as image}
+    <div class="image-container">
+      <img src={image.src} alt={image.alt.replace('<br>', ' ')} class="image" />
+      <div class="text-overlay">
+        {@html image.alt}
       </div>
-    </Carousel>
-    <div class="alt-text">
-      {image?.alt}
     </div>
-  </div>
+  {/each}
 </div>
-
