@@ -36,8 +36,6 @@
   .tooltip:hover .dropdown {
     display: block;
   }
-  
-
 </style>
 
 <Navbar class="mb-4 border-b-2 border-gray-300">
@@ -48,31 +46,34 @@
     </div>
   </NavBrand>
   <NavHamburger on:click={toggleDropdown} />
-  <NavUl {activeUrl}>
+  <NavUl>
     <div class="tooltip">
-      <NavLi class="relative" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">
-        <span class="text-primary-800 dark:text-white inline">소개</span>
+      <NavLi class="relative {activeUrl === '/insamal' || activeUrl === '/jojikdo' || activeUrl === '/yeonheuk' ? 'text-blue-500' : 'text-black dark:text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">
+        <span class="inline">소개</span>
         <div class="dropdown">
-          <DropdownItem href="/insamal">인사말</DropdownItem>
-          <DropdownItem href="/jojikdo">조직도</DropdownItem>
-          <DropdownItem href="/yeonheuk">연혁</DropdownItem>
+          <DropdownItem href="/insamal" class="text-black dark:text-white">인사말</DropdownItem>
+          <DropdownItem href="/jojikdo" class="text-black dark:text-white">조직도</DropdownItem>
+          <DropdownItem href="/yeonheuk" class="text-black dark:text-white">연혁</DropdownItem>
         </div>
       </NavLi>
     </div>
-    <NavLi href="/Notice" class="nav-li" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">공지</NavLi>
-    <NavLi href="/FAQ" class="nav-li" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">FAQ</NavLi>
-    <NavLi href="/convenience_information" class="nav-li" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">편의정보</NavLi>
+    <NavLi href="/Notice" class="nav-li {activeUrl === '/Notice' ? 'text-blue-500' : 'text-black dark:text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">공지</NavLi>
+    <NavLi href="/FAQ" class="nav-li {activeUrl === '/FAQ' ? 'text-blue-500' : 'text-black dark:text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">FAQ</NavLi>
+    <NavLi href="/convenience_information" class="nav-li {activeUrl === '/convenience_information' ? 'text-blue-500' : 'text-black dark:text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">편의정보</NavLi>
     <div class="tooltip">
-      <NavLi class="relative" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">
-        <span class="text-primary-800 dark:text-white inline">활동</span>
+      <NavLi class="relative {activeUrl === '/2023' || activeUrl === '/2024' ? 'text-blue-500' : 'text-black dark:text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">
+        <span class="inline">활동</span>
         <div class="dropdown">
-          <DropdownItem href="/2023">2023</DropdownItem>
-          <DropdownItem href="/2024">2024</DropdownItem>
+          <DropdownItem href="/2023" class="text-black dark:text-white">2023</DropdownItem>
+          <DropdownItem href="/2024" class="text-black dark:text-white">2024</DropdownItem>
         </div>
       </NavLi>
     </div>
   </NavUl>
 </Navbar>
+
+
+
 
 <div>
   <slot></slot>

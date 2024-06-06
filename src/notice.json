@@ -1,0 +1,13 @@
+[
+    {
+      "id": 1,
+      "title": "First Notice",
+      "content": "This is the first notice."
+    },
+    {
+      "id": 2,
+      "title": "Second Notice",
+      "content": "This is the second notice."
+    }
+  ]
+  
