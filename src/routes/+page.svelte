@@ -27,7 +27,7 @@
 
   .image {
     width: 100%;
-    height: 550px;
+    height: 530px;
     object-fit: cover;
     display: block;
   }
@@ -56,7 +56,7 @@
   }
 </style>
 
-<div>
+<div class="mt-[-1rem]">
   {#each imageData as image}
     <div class="image-container">
       <img src={image.src} alt={image.alt.replace('<br>', ' ')} class="image" />

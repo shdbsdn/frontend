@@ -18,7 +18,7 @@
     position: relative;
     width: 100%;
     margin: 0 auto;
-    margin-top: -13px;
+    margin-top: -17px;
   }
 
   .text-overlay {

@@ -38,17 +38,21 @@
   }
 </style>
 
-<Navbar class="mb-4 border-b-2 border-gray-300">
-  <NavBrand href="/">
-    <img src="/images/PNU logo.jpg" class="me-3 h-6 sm:h-9" style="width: 50px; height: auto;" alt="PNU Logo" />
-    <div class="self-center whitespace-nowrap dark:text-white" style="font-size: 1.4em; font-weight: bold; margin-right: 30px;">
+<div style="display: flex; align-items: center; justify-content: center; text-align: center; border-bottom: 1px solid gray; padding: 10px;">
+  <a href="/" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+    <img src="/images/PNU_BCE_logo.jpg" style="width: 50px; height: auto; margin-right: 10px;" alt="PNUBCELogo" />
+    <div style="font-size: 1.4em; font-weight: bold;">
       PNU BCE Student Council
     </div>
-  </NavBrand>
-  <NavHamburger on:click={toggleDropdown} />
-  <NavUl>
-    <div class="tooltip">
-      <NavLi class="relative {activeUrl === '/insamal' || activeUrl === '/jojikdo' || activeUrl === '/yeonheuk' ? 'text-blue-500' : 'text-black dark:text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">
+  </a>
+</div>
+
+
+<Navbar class="bg-blue-900 mb-4 border-b-2 border-gray-300" style="display: flex; justify-content: center; align-items: center;">
+  <NavHamburger on:click={toggleDropdown} style="position: absolute; left: 10px;" />
+  <NavUl style="display: flex; justify-content: center; align-items: center; flex: 1;">
+    <div class="tooltip" style="position: relative;">
+      <NavLi class="relative {activeUrl === '/insamal' || activeUrl === '/jojikdo' || activeUrl === '/yeonheuk' ? 'text-blue-500' : 'text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 50px;">
         <span class="inline">소개</span>
         <div class="dropdown">
           <DropdownItem href="/insamal" class="text-black dark:text-white">인사말</DropdownItem>
@@ -57,11 +61,11 @@
         </div>
       </NavLi>
     </div>
-    <NavLi href="/Notice" class="nav-li {activeUrl === '/Notice' ? 'text-blue-500' : 'text-black dark:text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">공지</NavLi>
-    <NavLi href="/FAQ" class="nav-li {activeUrl === '/FAQ' ? 'text-blue-500' : 'text-black dark:text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">FAQ</NavLi>
-    <NavLi href="/convenience_information" class="nav-li {activeUrl === '/convenience_information' ? 'text-blue-500' : 'text-black dark:text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">편의정보</NavLi>
-    <div class="tooltip">
-      <NavLi class="relative {activeUrl === '/2023' || activeUrl === '/2024' ? 'text-blue-500' : 'text-black dark:text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 100px;">
+    <NavLi href="/Notice" class="nav-li {activeUrl === '/Notice' ? 'text-blue-500' : 'text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 80px;">공지</NavLi>
+    <NavLi href="/FAQ" class="nav-li {activeUrl === '/FAQ' ? 'text-blue-500' : 'text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 80px;">FAQ</NavLi>
+    <NavLi href="/convenience_information" class="nav-li {activeUrl === '/convenience_information' ? 'text-blue-500' : 'text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 80px;">편의정보</NavLi>
+    <div class="tooltip" style="position: relative;">
+      <NavLi class="relative {activeUrl === '/2023' || activeUrl === '/2024' ? 'text-blue-500' : 'text-white'}" style="font-size: 1.2em; font-weight: bold; margin-left: 80px;">
         <span class="inline">활동</span>
         <div class="dropdown">
           <DropdownItem href="/2023" class="text-black dark:text-white">2023</DropdownItem>
@@ -71,9 +75,6 @@
     </div>
   </NavUl>
 </Navbar>
-
-
-
 
 <div>
   <slot></slot>
